@@ -10,7 +10,12 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add("visitAndAttemptLogin", (username, password) => {
+  cy.visit("https://www.saucedemo.com/");
+  cy.get('input[placeholder="Username"]').type(username);
+  cy.get('input[placeholder="Password"]').type(password);
+  cy.get('input[type="submit"]').click();
+});
 //
 //
 // -- This is a child command --
